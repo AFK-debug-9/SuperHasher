@@ -391,7 +391,11 @@ except:
     stufftohash=sys.argv[1]
 def hasher(tohash, slowness, rounds):
     tohash = str(tohash) + '\0x00\0x00'*3
-    intified = int(str(''.join([str(ord(tohash[i])*i) for i in range(len(tohash))])))%10000
+    if len(tohash) < 1000:
+        intified = int(str(''.join([str(ord(tohash[i])*i) for i in range(len(tohash))])))%10000
+    else:
+        intified = 1
+        int(str(''.join([intified += ord(tohash[i])+i for i in range(len(tohash))])))%10000
     answer = 0
     lim = pow(2,1024)
     addval = 1
