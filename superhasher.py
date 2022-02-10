@@ -395,7 +395,9 @@ def hasher(tohash, slowness, rounds):
         intified = int(str(''.join([str(ord(tohash[i])*i) for i in range(len(tohash))])))%10000
     else:
         intified = 1
-        int(str(''.join([intified += ord(tohash[i])+i for i in range(len(tohash))])))%10000
+        for i in range(len(tohash)):
+            intified = ord(tohash[i])+i+intified
+        intified = intified%10000
     answer = 0
     lim = pow(2,1024)
     addval = 1
