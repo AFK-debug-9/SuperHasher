@@ -2,7 +2,6 @@ print("This software is licenced with MPL 2.0, by continuing you agree to the li
 print('\nSuperHasher\nMade By ERROR#3317')
 input('[Press enter to continue]')
 
-import os
 import sys
 if len(sys.argv) < 2:
     print('Missing Parmeters!')
